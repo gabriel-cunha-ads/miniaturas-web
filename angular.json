@@ -145,6 +145,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "miniaturas-web"
+    }
+  },
+  "defaultProject": "miniaturas-web",
+  "cli": {
+    "analytics": false
+  }
 }

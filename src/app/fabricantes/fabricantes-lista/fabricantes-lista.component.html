@@ -1,0 +1,56 @@
+<div class="card">
+
+    <div class="card-header">
+      <div class="float-left">
+        <h4>Fabricantes</h4>
+      </div>
+      <div class="float-right">
+        <button type="button" class="btn btn-primary" [routerLink]="['novo']">Novo Fabricante</button>
+      </div>
+    </div>
+  
+    <div class="card-body">
+  
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover" *ngIf="fabricantes$ | async as fabricantes; else loading">
+          <thead class="thead-light text-center">
+            <tr>
+              <th style="width: 5%" scope="col">Id</th>
+              <th scope="col">Nome</th>
+              <th scope="col">#</th>
+            </tr>
+          </thead>
+  
+          <tbody>
+            <tr *ngFor="let fabricante of fabricantes">
+              <td style="width: 5%" scope="row">{{fabricante.id}}</td>
+              <td scope="row">{{fabricante.nome}}</td>
+              <td style="width: 5%" scope="row">
+                <span (click)="abrirModal(fabricante); ">
+                  <i class="fa fa-trash" ></i>
+                </span>
+              </td>
+            </tr>
+     
+          </tbody>
+        </table>
+
+        <!-- 
+        <ng-template #loadingError>
+          <div *ngIf="error$ | async; else loading">
+            Erro ao carregar os fabricantes. Tente novamente mais tarde!
+          </div>
+        </ng-template>
+        -->
+        <ng-template #loading>
+          <span>Carregando...</span>
+        </ng-template>
+
+
+      </div>
+    </div>
+  </div>
+  
+
+<!-- ***** Modais ***** -->
+
