@@ -23,29 +23,28 @@
   
           <tbody>
             <tr *ngFor="let fabricante of fabricantes">
+              
               <td style="width: 5%" scope="row">{{fabricante.id}}</td>
+              
               <td scope="row">{{fabricante.nome}}</td>
-              <td style="width: 5%" scope="row">
-                <span (click)="abrirModal(fabricante); ">
-                  <i class="fa fa-trash" ></i>
-                </span>
+
+              <td style="width: 7%" scope="row">
+                <span class="float-left" (click)="onEdit(fabricante.id)">
+                  <i class="fa fa-edit" aria-hidden="true"></i>
+                </span>                               
+                <span class="float-left" (click)="onDelete(fabricante); ">
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                </span>               
               </td>
             </tr>
      
           </tbody>
         </table>
 
-        <!-- 
-        <ng-template #loadingError>
-          <div *ngIf="error$ | async; else loading">
-            Erro ao carregar os fabricantes. Tente novamente mais tarde!
-          </div>
-        </ng-template>
-        -->
         <ng-template #loading>
-          <span>Carregando...</span>
+          <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+          <span class="sr-only">Carregando...</span>          
         </ng-template>
-
 
       </div>
     </div>
@@ -53,4 +52,10 @@
   
 
 <!-- ***** Modais ***** -->
-
+<ng-template #deleteModal>
+  <div class="modal-body text-center">
+    <p>Tem certeza que deseja remover esse fabricante?</p>
+    <button type="button" class="btn btn-default"  (click)="onConfirmeDelete()" >Sim</button>
+    <button type="button" class="btn btn-primary" (click)="onDeclineDelete()">Não</button>
+  </div>
+</ng-template>

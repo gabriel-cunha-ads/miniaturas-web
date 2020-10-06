@@ -9,10 +9,12 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { SharedModule } from './shared/shared.module';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { TesteComponent } from './teste/teste.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TesteComponent
   ],
   imports: [
     BrowserModule,
